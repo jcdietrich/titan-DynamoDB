@@ -19,8 +19,10 @@ RUN src/test/resources/install-gremlin-server.sh
 
 WORKDIR /opt/dynamodb-titan-storage-backend/server/dynamodb-titan100-storage-backend-1.0.0-hadoop1
 
-ADD conf ./conf
+ADD conf /conf
 
 EXPOSE 8182
 
-CMD ["bin/gremlin-server.sh", "/conf/gremlin-server-local.yaml"]
+ENTRYPOINT ["bin/gremlin-server.sh"]
+
+CMD ["/conf/gremlin-server-local.yaml"]
